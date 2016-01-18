@@ -5,6 +5,8 @@
     invisibles: {}
     tabLength: 4
     fontSize: 12
+    softWrap: true
+    softWrapAtPreferredLineLength: true
   core:
     ignoredNames: [
       ".bundle"
