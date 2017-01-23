@@ -10,6 +10,7 @@
         helper = GIT_CREDENTIAL_HELPER
 [alias]
         ec = config --global -e
+        co = checkout
         up = !git pull --rebase --prune $@ && git submodule update --init --recursive
         cob = checkout -b
         cm = !git add -A && git commit -m
@@ -20,11 +21,13 @@
         wipe = !git add -A && git commit -qm 'WIPE SAVEPOINT' && git reset HEAD~1 --hard
         bclean = "!f() { git branch --merged ${1-master} | grep -v " ${1-master}$" | xargs -r git branch -d; }; f"
         bdone = "!f() { git checkout ${1-master} && git up && git bclean ${1-master}; }; f"
-        co = checkout
         promote = !$ZSH/bin/git-promote
         wtf     = !$ZSH/bin/git-wtf
         rank-contributors = !$ZSH/bin/git-rank-contributors
         count   = !git shortlog -sn
+        lg1 = log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
+        lg2 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
+        lg = !git lg3
 [color]
         diff = auto
         status = auto
@@ -46,4 +49,4 @@
         # for more information on different options of the below setting.
         #
         # Setting to git 2.0 default to suppress warning message
-        default = simple
+        default = nothing
