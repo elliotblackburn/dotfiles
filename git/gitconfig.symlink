@@ -1,13 +1,8 @@
-# Sample gitconfig
-#
-
+# Local/private config goes in the include
+[include]
+        path = ~/.gitconfig.local
 [hub]
         protocol = https
-[user]
-        name = AUTHORNAME
-        email = AUTHOREMAIL
-[credential]
-        helper = GIT_CREDENTIAL_HELPER
 [alias]
         ec = config --global -e
         co = checkout
@@ -50,3 +45,5 @@
         #
         # Setting to git 2.0 default to suppress warning message
         default = nothing
+[user]
+	name = BlueHatbRit
