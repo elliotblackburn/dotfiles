@@ -2,7 +2,7 @@
 export ZSH=$HOME/.dotfiles
 
 # your project folder that we can `c [tab]` to
-export PROJECTS=~/repos
+export PROJECTS=~/code
 
 # Stash your environment variables in ~/.localrc. This means they'll stay out
 # of your main dotfiles repository (which may be public, like this one), but
@@ -44,8 +44,5 @@ unset config_files
 export PATH="$PATH:$HOME/.rvm/bin"
 
 # Load in NVM
-export NVM_DIR="/Users/elliotblackburn/.nvm"
+export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
-
-# Run MTR to check the network
-alias netchk='sudo /usr/local/Cellar/mtr/0.86/sbin/mtr -n 8.8.8.8'
