@@ -12,6 +12,7 @@ brew 'rbenv'
 brew 'unrar'
 brew 'youtube-dl'
 brew 'spark'
+brew 'mysql'
 
 #cask 'atom'
 #cask 'google-chrome'
