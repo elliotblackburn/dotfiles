@@ -25,6 +25,7 @@
     fontSize: 12
     invisibles: {}
     showIndentGuide: true
+    softWrap: true
   "linter-write-good":
     additionalArgs: "--no-passive"
   "markdown-pdf":
