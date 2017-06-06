@@ -2,6 +2,6 @@
 
 brew install zsh
 
-sudo bash -c 'echo "/usr/local/bin/zsh" >> /etc/shells'
+sudo bash -c 'echo $(which zsh) >> /etc/shells'
 
-chsh -s /usr/local/bin/zsh
+chsh -s $(which zsh)
