@@ -1,0 +1,5 @@
+#!/bin/sh
+#
+# Display network diagnostics for outgoing traffic to 8.8.8.8
+
+sudo mtr 8.8.8.8
