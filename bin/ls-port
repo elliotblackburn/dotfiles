@@ -1,0 +1,5 @@
+#!/bin/sh
+#
+# Show processes running on a particular port
+
+lsof -i tcp:"$1"
