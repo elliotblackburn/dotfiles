@@ -12,6 +12,7 @@ brew 'unrar'
 brew 'youtube-dl'
 brew 'spark'
 brew 'mysql'
+brew 'zsh'
 
 cask '1password'
 cask 'atom'
