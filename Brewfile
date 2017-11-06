@@ -15,6 +15,7 @@ brew 'postgres'
 brew 'mysql'
 brew 'n'
 brew 'zsh'
+brew 'zsh-syntax-highlighting'
 
 cask '1password'
 cask 'google-chrome'
