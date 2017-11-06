@@ -66,11 +66,24 @@ if [ -z "$SHA" ]; then
   exit 1
 fi
 
-REPO=$(git config remote.origin.url | cut -d: -f2- | sed s/.git$//g)
+# Get the repo name whether we're using ssh or https
+REPO=$(git config remote.origin.url)
+if case $REPO in "https://"*) true;; *) false;; esac; then
+    REPO=$(git config remote.origin.url | cut -d/ -f4- | sed s/.git$//g)
+else
+    REPO=$(git config remote.origin.url | cut -d: -f2- | sed s/.git$//g)
+fi
+
 API_URL="https://api.github.com/repos/$REPO/statuses/$SHA"
 
-
 RESPONSE=$(curl --silent -H"Authorization: bearer $GITHUB_TOKEN" $API_URL)
+
+# Check to see if any statuses were returned, if they weren't then we
+# probably don't have any CI
+if [[ $(echo $RESPONSE | jq -r 'length') -eq 0 ]]; then
+  echo "CI status not found. Does this repo have CI?"
+  exit 1
+fi
 
 STATE=$(echo $RESPONSE | jq -r '.[0].state')
 TARGET=$(echo $RESPONSE | jq -r '.[0].target_url')
