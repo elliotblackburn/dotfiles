@@ -40,25 +40,15 @@ done
 
 unset config_files
 
-# Add RVM to PATH for scripting
-export PATH="$PATH:$HOME/.rvm/bin"
-
-# Load in NVM, even if we don't have it
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-# Add Python to PATH for Elasticbeanstalk CLI
-export PATH=~/Library/Python/2.7/bin:$PATH
-
-PATH="/Users/elliotblackburn/perl5/bin${PATH:+:${PATH}}"; export PATH;
-PERL5LIB="/Users/elliotblackburn/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
-PERL_LOCAL_LIB_ROOT="/Users/elliotblackburn/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
-PERL_MB_OPT="--install_base \"/Users/elliotblackburn/perl5\""; export PERL_MB_OPT;
-PERL_MM_OPT="INSTALL_BASE=/Users/elliotblackburn/perl5"; export PERL_MM_OPT;
 # Zsh syntax highlighting
 typeset -A ZSH_HIGHLIGHT_STYLES
 ZSH_HIGHLIGHT_STYLES[command]='none'
 ZSH_HIGHLIGHT_STYLES[builtin]='none'
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# Lunchy for systemctl handling with nicer commands
+LUNCHY_DIR=$(dirname `gem which lunchy`)/../extras
+if [ -f $LUNCHY_DIR/lunchy-completion.zsh ]; then
+  . $LUNCHY_DIR/lunchy-completion.zsh
+fi
