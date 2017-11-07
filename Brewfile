@@ -16,6 +16,7 @@ brew 'mysql'
 brew 'n'
 brew 'zsh'
 brew 'zsh-syntax-highlighting'
+brew 'hub'
 brew 'jq'
 
 cask '1password'
