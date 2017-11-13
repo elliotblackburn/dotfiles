@@ -1,0 +1,5 @@
+#!/bin/bash
+#
+# Flush routing tables, useful for sorting out issues when trying to connect to VPNs
+
+sudo ifconfig en0 down && sudo route flush && sudo ifconfig en0 up
