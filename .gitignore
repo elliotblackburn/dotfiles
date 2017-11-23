@@ -1,12 +1,6 @@
-atom.symlink/.apm
-atom.symlink/.node-gyp
-atom.symlink/.storage
-atom.symlink/blob-store
-atom.symlink/compile-cache/
-atom.symlink/packages
-atom.symlink/storage
-atom.symlink/themes
-atom.symlink/blob-store
-atom.symlink/recovery
+# git things
+/git/gitconfig.local.symlink
 
-git/gitconfig.local.symlink
+# emacs things
+/emacs/.emacs.d.symlink/*
+!/emacs/.emacs.d.symlink/lisp

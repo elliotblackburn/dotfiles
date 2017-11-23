@@ -1,0 +1,12 @@
+(add-to-list 'load-path "~/.emacs.d/lisp/")
+
+;; set up ido mode
+(require `ido)
+(setq ido-enable-flex-matching t)
+(setq ido-everywhere t)
+(ido-mode 1)
+
+;; turn off arrow keys (etc) and give prompts with
+;; correct commands
+(require 'no-easy-keys)
+(no-easy-keys 1)
