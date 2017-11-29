@@ -1,6 +1,0 @@
-#!/bin/sh
-#
-# Displays a list of all changed files with branch details,
-# this is my most commonly used status function
-
-git status -sb
