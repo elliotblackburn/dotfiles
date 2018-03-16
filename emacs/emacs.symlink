@@ -6,7 +6,11 @@
 (setq ido-everywhere t)
 (ido-mode 1)
 
-;; turn off arrow keys (etc) and give prompts with
-;; correct commands
-(require 'no-easy-keys)
+;; turn off arrow keys (etc) with emacs command prompts
+(require `no-easy-keys)
 (no-easy-keys 1)
+
+;; turn off some bars
+(if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
+(if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
+(if (fboundp 'menu-bar-mode) (menu-bar-mode 1))
