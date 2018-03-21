@@ -1,4 +1,3 @@
-
 ;;; no-easy-keys.el --- Learn the proper Emacs movement keys
 
 ;; Copyright (C) 2009-2012 Dan Amlund Thomsen
