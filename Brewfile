@@ -8,14 +8,18 @@ brew 'grc'
 brew 'openssl'
 brew 'ruby-build'
 brew 'rbenv'
+brew 'kerl'
+
+brew 'postgres'
+brew 'mysql'
+
+brew 'zsh'
+brew 'zsh-syntax-highlighting'
+
 brew 'unrar'
 brew 'youtube-dl'
 brew 'spark'
-brew 'postgres'
-brew 'mysql'
 brew 'n'
-brew 'zsh'
-brew 'zsh-syntax-highlighting'
 brew 'hub'
 brew 'jq'
 
