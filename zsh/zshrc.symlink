@@ -58,3 +58,7 @@ bindkey "^[[B" down-line-or-beginning-search # Down
 
 # Set the GPG tty
 export GPG_TTY=$(tty)
+
+# Manually compiled tools should get built and kept in the tools dir and then the executable
+# should be symlinked into the bin folder.
+export PATH=$PATH:~/tools/bin
