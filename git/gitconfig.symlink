@@ -40,11 +40,14 @@
 [push]
         # See `git help config` (search for push.default)
         # for more information on different options of the below setting.
-        #
-        # Setting to git 2.0 default to suppress warning message
+        # When set to "nothing" it stops us being able to push when we
+        # don't define an origin ie: `git push master` vs
+        # `git push origin master`.
         default = nothing
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
+[gpg]
+	program = gpg
