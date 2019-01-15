@@ -15,6 +15,7 @@ brew 'mysql'
 
 brew 'zsh'
 brew 'zsh-syntax-highlighting'
+brew 'tmux'
 
 brew 'unrar'
 brew 'youtube-dl'
@@ -23,8 +24,5 @@ brew 'n'
 brew 'hub'
 brew 'jq'
 
-cask '1password'
-#cask 'google-chrome'
-#cask 'slack'
 cask 'vlc'
 cask 'emacs'
