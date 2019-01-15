@@ -1,5 +1,6 @@
 # Add Python to PATH for Elasticbeanstalk CLI
 export PATH=~/Library/Python/2.7/bin:$PATH
+export PATH=~/Library/Python/3.7/bin:$PATH
 
 PATH="/Users/elliotblackburn/perl5/bin${PATH:+:${PATH}}"; export PATH;
 PERL5LIB="/Users/elliotblackburn/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
