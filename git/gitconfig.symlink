@@ -14,13 +14,14 @@
         undo = reset HEAD~1 --mixed
         amend = commit -a --amend
         wipe = !git add -A && git commit -qm 'WIPE SAVEPOINT' && git reset HEAD~1 --hard
-        bclean = "!f() { git branch --merged ${1-master} | grep -v " ${1-master}$" | xargs -r git branch -d; }; f"
+        bclean = "!f() { git branch --merged ${1-master} | grep -v " ${1-master}$" | xargs git branch -d; }; f"
         bdone = "!f() { git checkout ${1-master} && git up && git bclean ${1-master}; }; f"
         count = !git shortlog -sn
         lg1 = log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
-        lg2 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
+        lg2 = log --graph --abbrev-commit --decorate --format=format:'%C(bold bolue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
         lg3 = log --graph --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
         lg = !git lg1
+        fetchpr = "!f() { git fetch ${1} pull/${2}/head:pr-${2}; }; f"
 [color]
         diff = auto
         status = auto
@@ -29,6 +30,7 @@
 [core]
         excludesfile = ~/.gitignore
         editor = emacs
+	autocrlf = true
 [apply]
         whitespace = nowarn
 [mergetool]
@@ -51,3 +53,6 @@
 	required = true
 [gpg]
 	program = gpg
+[user]
+	name = Elliot Blackburn
+	email = elliot.blackburn@just-eat.com
