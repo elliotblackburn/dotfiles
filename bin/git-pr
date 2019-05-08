@@ -1,31 +1,63 @@
-#!/bin/bash
-# Usage: git pr [<branch>]
-# Open the pull request page for <branch>, or the current branch if not
-# specified. Lands on the new pull request page when no PR exists yet.
-# The branch must already be pushed
+#!/usr/bin/env bash
+# Uses "git pull" to grab a github pull request branch from a given remote or origin.
+# because this uses "git pull" it will either fetch the branch if it doesn't exist,
+# or update the branch if it does.
 # 
-# From @pengwynn - https://github.com/pengwynn/dotfiles/blob/98128dc91525759ca5c58252bd01b5c89015ee1d/bin/git-pr, based on script from @rtomayko
-set -e
+# Usage: git pr {remote} {pull-request-id}
+#     git pr upstream 257
+#     git pr 257
+#
+# Based on https://gist.github.com/gnarf/5406589 and https://gist.github.com/jhnns/d654d9d6da6d3b749986
 
-# usage message
-if [ "$1" == "--help" -o "$1" == '-h' ]; then
-    grep ^#/ "$0" | cut -c4-
-    exit
-fi
+pull() {
+  local remote="$1"
+  local id="$2"
+  local branch="$3"
+  git fetch -fu $remote refs/pull/$id/head:$branch && \
+  git checkout $branch && \
+  git config --local --replace branch.$branch.merge refs/pull/$id/head && \
+  git config --local --replace branch.$branch.remote $remote;
+}
 
-remote_url=$(git config --get remote.origin.url)
-repo_with_owner=$(echo $remote_url | perl -pe's/(git@|https:\/\/)?github.com(:|\/)([-\.\w]+)\/([-\.\w]+)\.git/$3\/$4/')
+pull_pr_if_matched() {
+  if [[ $1 =~ ^(.*):([0-9]+)|(https?://[^/]+/.+)/pull/([0-9]+).*$ ]]; then
+    if [[ -n ${BASH_REMATCH[2]} ]]; then
+        remote="${BASH_REMATCH[1]:-origin}"
+        id="${BASH_REMATCH[2]}"
+    else
+        remote="${BASH_REMATCH[3]}.git"
+        id="${BASH_REMATCH[4]}"
+    fi
 
-# figure out the branch
-branch=${1:-"$(git symbolic-ref HEAD | sed 's@refs/heads/@@')"}
+    branch=pr/$id
+    pull "$remote" "$id" "$branch"
+    return $?
+  fi
 
-# check that the branch exists in the origin remote first
-if git rev-parse "refs/remotes/origin/$branch" 1>/dev/null 2>&1; then
-    # escape forward slashes
-    branch=${branch//\//\%2f}
+  echo "$1 doesn't match the pr id pattern."
+  return 1
+}
 
-    exec open "https://github.com/$repo_with_owner/pull/$branch"
+test -z "$1" && echo "pr number required." 1>&2 && exit 1
+
+if test "$1" = "clean"; then
+  git for-each-ref refs/heads/pr/* --format='%(refname)' | while read ref; do
+    git branch -D ${ref#refs/heads/}
+  done
+
+elif [[ "$1" =~ ^[0-9]+$ ]]; then
+  remote=${2:-origin}
+  id=$1
+  branch=pr/$id
+  pull "$remote" "$id" "$branch"
+
 else
-    echo "error: branch '$branch' does not exist on the origin remote." 1>&2
-    echo "       try again after pushing the branch"
+  rc=1
+  while [ "$1" != "" ]; do
+    pull_pr_if_matched "$1"
+    rc=$?
+    shift
+  done
+
+  exit "$rc"
 fi
