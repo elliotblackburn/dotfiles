@@ -1,5 +1,11 @@
 (add-to-list 'load-path "~/.emacs.d/lisp/")
 
+;; turn off welcome screen
+(setq inhibit-startup-screen t)
+
+;; turn on line numbers in the left hand gutter
+(global-linum-mode t)
+
 ;; set up ido mode
 (require `ido)
 (setq ido-enable-flex-matching t)
