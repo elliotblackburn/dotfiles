@@ -30,7 +30,7 @@
 [core]
         excludesfile = ~/.gitignore
         editor = emacs
-	autocrlf = true
+	autocrlf = input
 [apply]
         whitespace = nowarn
 [mergetool]
