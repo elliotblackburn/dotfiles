@@ -58,7 +58,11 @@ battery_status() {
   $ZSH/bin/battery-status
 }
 
-export PROMPT=$'\n$(battery_status)in $(directory_name) $(git_dirty)$(need_push)\n› '
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  export PROMPT=$'\n$(battery_status)in $(directory_name) $(git_dirty)$(need_push)\n› '
+else
+  export PROMPT=$'\n$(directory_name) $(git_dirty)$(need_push)\n› '
+fi
 set_prompt () {
   export RPROMPT="%{$fg_bold[cyan]%}%{$reset_color%}"
 }
