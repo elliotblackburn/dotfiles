@@ -8,7 +8,7 @@ brew 'grc'
 brew 'openssl'
 brew 'ruby-build'
 brew 'rbenv'
-brew 'kerl'
+brew 'asdf'
 
 brew 'postgres'
 brew 'mysql'
