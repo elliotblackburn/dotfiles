@@ -1,0 +1,1 @@
+echo -e "\n. $(brew --prefix asdf)/asdf.sh" >> ~/.zshrc
