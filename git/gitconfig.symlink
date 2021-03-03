@@ -29,7 +29,7 @@
         ui = true
 [core]
         excludesfile = ~/.gitignore
-        editor = emacs
+        editor = subl -n -w
 	autocrlf = input
 [apply]
         whitespace = nowarn
