@@ -77,4 +77,12 @@ bindkey "^[[B" down-line-or-beginning-search # Down
 # Set the GPG tty
 export GPG_TTY=$(tty)
 
-. /usr/local/opt/asdf/asdf.sh
+# Source asdf on mac
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  . /usr/local/opt/asdf/asdf.sh
+fi
+
+# Source asdf on linux
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+  . $HOME/.asdf/asdf.sh
+fi
