@@ -1,7 +1,7 @@
 export GIT_SANDBOX=~/code/sandbox
 
 # Wrap git with hub
-if [[ -f `command -v hub` ]] ; then alias git=hub ; fi
+# if [[ -f `command -v hub` ]] ; then alias git=hub ; fi
 
 function g {
     if [[ $# > 0 ]]; then

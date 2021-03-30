@@ -36,7 +36,14 @@ do
 done
 
 # initialize autocomplete here, otherwise functions won't be loaded
-autoload -U compinit
+if type brew &>/dev/null; then
+  FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
+
+  # autoload -Uz compinit
+  # compinit
+fi
+
+autoload -Uz compinit
 compinit
 
 # load every completion after autocomplete loads
