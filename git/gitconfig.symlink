@@ -53,6 +53,3 @@
 	required = true
 [gpg]
 	program = gpg
-[user]
-	name = Elliot Blackburn
-	email = elliot@lybrary.io
