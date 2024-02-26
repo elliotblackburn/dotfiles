@@ -86,3 +86,8 @@ fi
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
   . $HOME/.asdf/asdf.sh
 fi
+
+# Add pip3 --user installed stuff to path
+export PATH=~/.local/bin:$PATH
+
+if [ -e /home/elliot/.nix-profile/etc/profile.d/nix.sh ]; then . /home/elliot/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
