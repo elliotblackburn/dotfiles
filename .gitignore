@@ -1,8 +1,2 @@
 # git things
 /git/gitconfig.local.symlink
-
-# emacs things
-/emacs/.emacs.d.symlink/*
-!/emacs/.emacs.d.symlink/lisp
-emacs/emacs.d.symlink/ido.last
-emacs/emacs.d.symlink/auto-save-list
