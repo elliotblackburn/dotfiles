@@ -1,9 +1,0 @@
-#!/bin/sh
-#
-# Show hidden files on OS X
-
-# Set the default to show all files to yes
-defaults write com.apple.finder AppleShowAllFiles YES
-
-# Restart Finder
-killall Finder

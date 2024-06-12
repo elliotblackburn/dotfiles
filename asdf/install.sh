@@ -6,5 +6,5 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
 	# Install deps
 	sudo apt install curl git -y
 
-	git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.8.0
+	git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.14.0
 fi
