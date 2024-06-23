@@ -57,7 +57,7 @@ ZSH_HIGHLIGHT_STYLES[command]='none'
 ZSH_HIGHLIGHT_STYLES[builtin]='none'
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
 if [[ "$OSTYPE" == "darwin"* ]]; then
-  source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+  source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 else
   source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
@@ -73,11 +73,6 @@ bindkey "^[[B" down-line-or-beginning-search # Down
 
 # Set the GPG tty
 export GPG_TTY=$(tty)
-
-# Source asdf on mac
-if [[ "$OSTYPE" == "darwin"* ]]; then
-  . /usr/local/opt/asdf/asdf.sh
-fi
 
 # Source asdf on linux
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then

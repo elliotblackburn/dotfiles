@@ -1,10 +1,6 @@
 #!/bin/sh
 
-if [[ "$OSTYPE" == "darwin"* ]]; then
-  sudo bash -c 'echo $(which zsh) >> /etc/shells'
-
-  chsh -s $(which zsh)
- else
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
  	# Install zsh and syntax highlighting
  	sudo apt install zsh zsh-syntax-highlighting -y
 
