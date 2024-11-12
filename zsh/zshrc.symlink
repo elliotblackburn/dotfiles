@@ -74,11 +74,8 @@ bindkey "^[[B" down-line-or-beginning-search # Down
 # Set the GPG tty
 export GPG_TTY=$(tty)
 
-# Source asdf on linux
-if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-  . $HOME/.asdf/asdf.sh
-fi
+# Source asdf
+. $HOME/.asdf/asdf.sh
 
 # Add pip3 --user installed stuff to path
 export PATH=~/.local/bin:$PATH
-

@@ -1,7 +1,5 @@
-
 .DS_Store
-*~
-*.swp
 .vscode
 .idea
-*.ncrunchsolution
+.zed
+.elliot
