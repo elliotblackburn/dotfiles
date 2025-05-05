@@ -4,3 +4,9 @@
         signingkey = SIGNINGKEY
 [credential]
         helper = GIT_CREDENTIAL_HELPER
+[gpg "ssh"]
+    # MacOS 1Password
+    program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
+
+    # Linux 1Password
+    # program = /opt/1Password/op-ssh-sign
