@@ -74,9 +74,13 @@ bindkey "^[[B" down-line-or-beginning-search # Down
 # Set the GPG tty
 export GPG_TTY=$(tty)
 
-# Source asdf
-. $HOME/.asdf/asdf.sh
+# Source asdf if installed directly
+if [[ -e $HOME/.asdf/asdf.sh ]]
+then
+  source $HOME/.asdf/asdf.sh
+fi
 
+# Source asdf if installed with homebrew
 if [[ "$OSTYPE" == "darwin"* ]]; then
   . /opt/homebrew/opt/asdf/libexec/asdf.sh
 fi
