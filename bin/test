@@ -1,5 +1,0 @@
-#!/bin/sh
-#
-# Echo a test message to the terminal
-
-echo "By Scott, it worked!"
