@@ -18,7 +18,11 @@
   # Import shared configs
   imports = [
     ./packages.nix
-    ./programs/git.nix
+    ({ config, pkgs, ... }: import ./programs/git.nix {
+      inherit config pkgs;
+      userName = "Elliot Blackburn";
+      userEmail = "elliot@lybrary.io";
+    })
     ./programs/zsh.nix
     ./programs/tmux.nix
   ];

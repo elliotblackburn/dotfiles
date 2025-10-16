@@ -29,7 +29,7 @@
           home-manager = {
             useGlobalPkgs = true;
             useUserPackages = true;
-            users.elliot = import ./home-manager/macos.nix;
+            users.elliot = import ./home-manager/macos-personal.nix;
           };
         }
       ];
