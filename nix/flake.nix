@@ -23,6 +23,13 @@
       modules = [
         ./macos.nix
 
+        # Allow unfree packages
+        { nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (nixpkgs.lib.getName pkg)
+          [
+            "terraform"
+          ];
+        }
+
         home-manager.darwinModules.home-manager
         {
           users.users.elliot.home = "/Users/elliot";
@@ -40,6 +47,13 @@
       modules = [
         ./macos.nix
 
+        # Allow unfree packages
+        { nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (nixpkgs.lib.getName pkg)
+          [
+            "terraform"
+          ];
+        }
+
         home-manager.darwinModules.home-manager
         {
           users.users.elliot.home = "/Users/elliot";
@@ -55,7 +69,13 @@
     # Ubuntu/Linux configuration (standalone home-manager)
     # Activate with: home-manager switch --flake .#elliot@hostname
     # homeConfigurations."elliot@hostname" = home-manager.lib.homeManagerConfiguration {
-    #   pkgs = nixpkgs.legacyPackages.x86_64-linux;
+    #   pkgs = import nixpkgs {
+    #     system = "x86_64-linux";
+    #     config.allowUnfreePredicate = pkg: builtins.elem (nixpkgs.lib.getName pkg)
+    #     [
+    #       "terraform"
+    #     ];
+    #   };
     #   modules = [
     #     (import ./home-manager/home.nix {
     #       username = "elliot";

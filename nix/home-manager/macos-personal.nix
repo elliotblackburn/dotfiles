@@ -18,6 +18,7 @@
   # Import shared configs
   imports = [
     ./packages.nix
+    ./programs/developer.nix
     ({ config, pkgs, ... }: import ./programs/git.nix {
       inherit config pkgs;
       userName = "Elliot Blackburn";
