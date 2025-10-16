@@ -32,11 +32,6 @@
     # Go configuration
     go = {
       enable = true;
-
-      env = {
-        GOPATH = "go";
-        GOBIN = "go/bin";
-      }
     };
   };
 
