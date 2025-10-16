@@ -5,14 +5,6 @@
     coreutils
     grc
     openssl
-
-    # Development tools
-    jq
-
-    # Language runtimes (explicit BEAM packages for compatibility)
-    beam.packages.erlang_28.erlang
-    beam.packages.erlang_28.elixir_1_18
-    nodejs_24
   ];
 
   nix.settings.experimental-features = "nix-command flakes";

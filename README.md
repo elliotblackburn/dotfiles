@@ -78,3 +78,7 @@ home-manager switch --flake .#elliot@hostname
 - Add shell functions to `shell/functions/`
 - Modify the flake.nix for system-level changes
 - Use `~/.localrc` and `~/.localaliases` for machine-specific overrides
+
+## Notes
+
+* asdf is accounted for via shims and functions in the zsh/bash scripts, but it's not encouraged. Most systems managed by these dotfiles don't use them but it's there to support other systems.
