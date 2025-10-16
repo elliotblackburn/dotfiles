@@ -4,6 +4,7 @@
   home.packages = with pkgs; [
     git
     git-lfs
+    tmux
     direnv
   ];
 
