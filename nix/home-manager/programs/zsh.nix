@@ -116,7 +116,8 @@
     history = {
       size = 10000;
       save = 10000;
-      path = "${config.xdg.dataHome}/zsh/history";
+      #path = "${config.xdg.dataHome}/zsh/history";
+      path = "$HOME/.zsh_history";
       extended = true;
       ignoreDups = true;
       ignoreSpace = true;
