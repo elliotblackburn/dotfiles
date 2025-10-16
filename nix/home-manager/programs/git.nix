@@ -1,11 +1,11 @@
-{ config, pkgs, ... }:
+{ config, pkgs, userName ? "Elliot Blackburn", userEmail ? "elliot@lybrary.io", ... }:
 
 {
   programs.git = {
     enable = true;
 
-    userName = "Elliot Blackburn";
-    userEmail = "elliot@lybrary.io";
+    userName = userName;
+    userEmail = userEmail;
 
     aliases = {
       ec = "config --global -e";

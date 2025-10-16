@@ -17,8 +17,8 @@
 
   outputs = inputs@{ self, nixpkgs, nix-darwin, home-manager }: {
     # Build darwin flake using:
-    # $ darwin-rebuild build --flake .#macosDev
-    darwinConfigurations."macosDev" = nix-darwin.lib.darwinSystem {
+    # $ darwin-rebuild build --flake .#elliot@macos-personal
+    darwinConfigurations."elliot@macos-personal" = nix-darwin.lib.darwinSystem {
       system = "aarch64-darwin";
       modules = [
         ./macos.nix
@@ -30,6 +30,23 @@
             useGlobalPkgs = true;
             useUserPackages = true;
             users.elliot = import ./home-manager/macos.nix;
+          };
+        }
+      ];
+    };
+
+    darwinConfigurations."elliot@macos-work" = nix-darwin.lib.darwinSystem {
+      system = "aarch64-darwin";
+      modules = [
+        ./macos.nix
+
+        home-manager.darwinModules.home-manager
+        {
+          users.users.elliot.home = "/Users/elliot";
+          home-manager = {
+            useGlobalPkgs = true;
+            useUserPackages = true;
+            users.elliot = import ./home-manager/macos-work.nix;
           };
         }
       ];
