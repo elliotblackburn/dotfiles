@@ -59,8 +59,6 @@ Nix fork (experimental) - https://github.com/NixOS/experimental-nix-installer
 
 ### Setup
 ```sh
-cd ~/.dotfiles/nix
-
 # For macos personal machine
 sudo darwin-rebuild build --flake .#elliot@macos-personal
 sudo darwin-rebuild switch --flake .#elliot@macos-personal
