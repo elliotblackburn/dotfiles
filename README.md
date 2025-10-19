@@ -77,6 +77,16 @@ home-manager switch --flake .#elliot@hostname
 - Modify the flake.nix for system-level changes
 - Use `~/.localrc` and `~/.localaliases` for machine-specific overrides
 
+### Garbage collection
+
+Nix maintains built profiles pretty much infinitely from what I can tell. So it's useful to clean up every so often to keep disk usage under control.
+
+```sh
+# Delete all but the 5 most recent profile generations.
+# This works on macos, it might work on linux as well.
+sudo nix-env --delete-generations +5 --profile /nix/var/nix/profiles/system
+```
+
 ## Notes
 
 * asdf is accounted for via shims and functions in the zsh/bash scripts, but it's not encouraged. Most systems managed by these dotfiles don't use them but it's there to support other systems.
