@@ -68,21 +68,20 @@
 
     # Ubuntu/Linux configuration (standalone home-manager)
     # Activate with: home-manager switch --flake .#elliot@hostname
-    # homeConfigurations."elliot@hostname" = home-manager.lib.homeManagerConfiguration {
-    #   pkgs = import nixpkgs {
-    #     system = "x86_64-linux";
-    #     config.allowUnfreePredicate = pkg: builtins.elem (nixpkgs.lib.getName pkg)
-    #     [
-    #       "terraform"
-    #     ];
-    #   };
-    #   modules = [
-    #     (import ./home-manager/home.nix {
-    #       username = "elliot";
-    #       homeDirectory = "/home/elliot";
-    #     })
-    #     ./home-manager/linux.nix
-    #   ];
-    # };
+    homeConfigurations."elliot@hostname" = home-manager.lib.homeManagerConfiguration {
+      pkgs = import nixpkgs {
+        system = "x86_64-linux";
+        config.allowUnfreePredicate = pkg: builtins.elem (nixpkgs.lib.getName pkg)
+        [
+          "terraform"
+        ];
+      };
+      modules = [
+        (import ./home-manager/home.nix {
+          username = "elliot";
+          homeDirectory = "/home/elliot";
+        })
+      ];
+    };
   };
 }
