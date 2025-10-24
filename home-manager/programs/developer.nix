@@ -35,6 +35,15 @@
     };
   };
 
+  # Set up npm global configuration and PATH
+  home.sessionVariables = {
+    NPM_CONFIG_PREFIX = "${config.home.homeDirectory}/.npm-global";
+  };
+
+  home.sessionPath = [
+    "${config.home.homeDirectory}/.npm-global/bin"
+  ];
+
   # Development-specific shell aliases
   home.shellAliases = {
     # Network debugging
