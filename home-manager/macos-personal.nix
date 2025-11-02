@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, gitConfig, ... }:
 
 {
   home.username = "elliot";
@@ -19,13 +19,7 @@
   imports = [
     ./packages.nix
     ./programs/developer.nix
-    ({ config, pkgs, ... }: import ./programs/git.nix {
-      inherit config pkgs;
-      userName = "Elliot Blackburn";
-      userEmail = "elliot@lybrary.io";
-      gpgSshProgram = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign";
-      signingKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIF3fznw303UZ4U+35laeeSuY4VMCKIDsT/ZGpSbQGQpi";
-    })
+    (import ./programs/git.nix { inherit config pkgs gitConfig; })
     ./programs/zsh.nix
     ./programs/tmux.nix
   ];

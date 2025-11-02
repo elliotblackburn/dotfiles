@@ -1,11 +1,11 @@
-{ config, pkgs, userName, userEmail, gpgSshProgram, signingKey, ... }:
+{ config, pkgs, gitConfig, ... }:
 
 {
   programs.git = {
     enable = true;
 
-    userName = userName;
-    userEmail = userEmail;
+    userName = gitConfig.userName;
+    userEmail = gitConfig.userEmail;
 
     aliases = {
       ec = "config --global -e";
@@ -81,7 +81,7 @@
       gpg = {
         format = "ssh";
         ssh = {
-          program = gpgSshProgram;
+          program = gitConfig.gpgSshProgram;
         };
       };
 
@@ -95,7 +95,7 @@
     };
 
     signing = {
-      key = signingKey;
+      key = gitConfig.signingKey;
       signByDefault = true;
     };
   };

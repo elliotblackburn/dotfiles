@@ -37,6 +37,14 @@
             useGlobalPkgs = true;
             useUserPackages = true;
             users.elliot = import ./home-manager/macos-personal.nix;
+            extraSpecialArgs = {
+              gitConfig = {
+                userName = "Elliot Blackburn";
+                userEmail = "elliot@lybrary.io";
+                gpgSshProgram = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign";
+                signingKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIF3fznw303UZ4U+35laeeSuY4VMCKIDsT/ZGpSbQGQpi";
+              };
+            };
           };
         }
       ];
@@ -61,6 +69,14 @@
             useGlobalPkgs = true;
             useUserPackages = true;
             users.elliot = import ./home-manager/macos-work.nix;
+            extraSpecialArgs = {
+              gitConfig = {
+                userName = "Elliot Blackburn";
+                userEmail = "elliot@sunbeam.cx";
+                gpgSshProgram = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign";
+                signingKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHmR5JHdpexNp5VF/o/ikU1ET384vmwKL1KI4nVZbnHO";
+              };
+            };
           };
         }
       ];
@@ -79,6 +95,14 @@
       modules = [
         ./home-manager/linux-personal.nix
       ];
+      extraSpecialArgs = {
+        gitConfig = {
+          userName = "Elliot Blackburn";
+          userEmail = "elliot@lybrary.io";
+          gpgSshProgram = "/opt/1Password/op-ssh-sign";
+          signingKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICuTYLig+zGIUpsAR3fjVbarktmpYyxJrM0ViVzdOuCe";
+        };
+      };
     };
   };
 }
