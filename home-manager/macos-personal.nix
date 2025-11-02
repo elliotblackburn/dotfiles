@@ -23,6 +23,8 @@
       inherit config pkgs;
       userName = "Elliot Blackburn";
       userEmail = "elliot@lybrary.io";
+      gpgSshProgram = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign";
+      signingKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIF3fznw303UZ4U+35laeeSuY4VMCKIDsT/ZGpSbQGQpi";
     })
     ./programs/zsh.nix
     ./programs/tmux.nix

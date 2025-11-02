@@ -18,7 +18,13 @@
   # Import shared configs
   imports = [
     ./packages.nix
-    ./programs/git.nix
+    ({ config, pkgs, ... }: import ./programs/git.nix {
+      inherit config pkgs;
+      userName = "Elliot Blackburn";
+      userEmail = "elliot@lybrary.io";
+      gpgSshProgram = "/opt/1Password/op-ssh-sign";
+      signingKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICuTYLig+zGIUpsAR3fjVbarktmpYyxJrM0ViVzdOuCe";
+    })
     ./programs/zsh.nix
     ./programs/tmux.nix
   ];

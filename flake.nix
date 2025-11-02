@@ -68,7 +68,7 @@
 
     # Ubuntu/Linux configuration (standalone home-manager)
     # Activate with: home-manager switch --flake .#elliot@hostname
-    homeConfigurations."elliot@hostname" = home-manager.lib.homeManagerConfiguration {
+    homeConfigurations."elliot@desktop" = home-manager.lib.homeManagerConfiguration {
       pkgs = import nixpkgs {
         system = "x86_64-linux";
         config.allowUnfreePredicate = pkg: builtins.elem (nixpkgs.lib.getName pkg)
@@ -77,10 +77,7 @@
         ];
       };
       modules = [
-        (import ./home-manager/home.nix {
-          username = "elliot";
-          homeDirectory = "/home/elliot";
-        })
+        ./home-manager/linux-personal.nix
       ];
     };
   };

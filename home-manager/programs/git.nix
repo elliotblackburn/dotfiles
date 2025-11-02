@@ -1,4 +1,4 @@
-{ config, pkgs, userName ? "Elliot Blackburn", userEmail ? "elliot@lybrary.io", ... }:
+{ config, pkgs, userName, userEmail, gpgSshProgram, signingKey, ... }:
 
 {
   programs.git = {
@@ -81,7 +81,7 @@
       gpg = {
         format = "ssh";
         ssh = {
-          program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign";
+          program = gpgSshProgram;
         };
       };
 
@@ -95,7 +95,7 @@
     };
 
     signing = {
-      key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIF3fznw303UZ4U+35laeeSuY4VMCKIDsT/ZGpSbQGQpi";
+      key = signingKey;
       signByDefault = true;
     };
   };
