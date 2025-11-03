@@ -3,16 +3,14 @@
 {
   home.packages = with pkgs; [
     # Python with development packages
-    (python3.withPackages (ps: with ps; [
-      pip
-      virtualenv
-      setuptools
-      wheel
-    ]))
+    # (python3.withPackages (ps: with ps; [
+    #   pip
+    #   virtualenv
+    #   setuptools
+    #   wheel
+    # ]))
 
-    # Python package managers
-    poetry
-    uv
+    # pyenv
   ];
 
   # Python-specific environment variables
@@ -33,9 +31,5 @@
     pad = "poetry add --group dev";
     pr = "poetry run";
     ps = "poetry shell";
-
-    # UV shortcuts (for future migration)
-    uvi = "uv pip install";
-    uvs = "uv pip sync";
   };
 }
