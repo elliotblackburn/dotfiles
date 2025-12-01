@@ -21,5 +21,6 @@
     (import ./programs/git.nix { inherit config pkgs gitConfig; })
     ./programs/zsh.nix
     ./programs/tmux.nix
+    ./programs/zed.nix
   ];
 }
