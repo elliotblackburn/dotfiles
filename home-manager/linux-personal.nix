@@ -22,5 +22,6 @@
     ./programs/zsh.nix
     ./programs/tmux.nix
     ./programs/zed.nix
+    ./programs/podman.nix
   ];
 }
