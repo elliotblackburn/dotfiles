@@ -13,6 +13,19 @@
     compose_warning_logs = false
   '';
 
+  # Configure registries to resolve unqualified names to Docker Hub
+  xdg.configFile."containers/registries.conf".text = ''
+    # For compatibility with Docker and to resolve unqualified image names
+    unqualified-search-registries = ["docker.io"]
+
+    [[registry]]
+    prefix = "docker.io"
+    location = "docker.io"
+
+    [[registry.mirror]]
+    location = "registry-1.docker.io"
+  '';
+
   home.shellAliases = {
     docker = "podman";
     docker-compose = "podman-compose";
