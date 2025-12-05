@@ -1,12 +1,8 @@
-# ~/.dotfiles/nix/home-manager/programs/developer.nix
 { config, pkgs, ... }:
 
 {
   home.packages = with pkgs; [
     # Language toolchains
-    nodejs_24
-    beam.packages.erlang_28.erlang
-    beam.packages.erlang_28.elixir_1_18
     python3
     go
 
@@ -34,15 +30,6 @@
       enable = true;
     };
   };
-
-  # Set up npm global configuration and PATH
-  home.sessionVariables = {
-    NPM_CONFIG_PREFIX = "${config.home.homeDirectory}/.npm-global";
-  };
-
-  home.sessionPath = [
-    "${config.home.homeDirectory}/.npm-global/bin"
-  ];
 
   # Development-specific shell aliases
   home.shellAliases = {

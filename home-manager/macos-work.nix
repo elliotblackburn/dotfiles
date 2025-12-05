@@ -19,6 +19,8 @@
   imports = [
     ./packages.nix
     ./programs/developer.nix
+    ./programs/nodejs.nix
+    ./programs/beam.nix
     ./programs/python-dev.nix
     (import ./programs/git.nix { inherit config pkgs gitConfig; })
     ./programs/zsh.nix
