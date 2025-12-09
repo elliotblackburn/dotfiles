@@ -10,7 +10,7 @@
         email = gitConfig.userEmail;
       };
 
-      aliases = {
+      alias = {
         ec = "config --global -e";
         co = "checkout";
         cob = "checkout -b";
