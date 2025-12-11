@@ -55,6 +55,25 @@
         CSS = {
           tab_size = 2;
         };
+        JavaScript = {
+          formatter = "prettier";
+          format_on_save = "on";
+        };
+        TypeScript = {
+          formatter = "prettier";
+          format_on_save = "on";
+        };
+        TSX = {
+          formatter = "prettier";
+          format_on_save = "on";
+        };
+        JSX = {
+          formatter = "prettier";
+          format_on_save = "on";
+        };
+      };
+      prettier = {
+        allowed = true;
       };
       show_edit_predictions = true;
       features = {
