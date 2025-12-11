@@ -10,9 +10,10 @@
     terraform
     ansible
 
-    # Modern CLI tools
-    jq         # JSON processor
-    yq         # YAML processor
+    # General CLI tools
+    jq
+    yq
+    numbat
 
     # Database tools
     # postgresql
