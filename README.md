@@ -49,13 +49,8 @@ The zsh configuration automatically loads:
 
 ## Installation
 
-### Prerequisites
-- Install Nix. The recommended path is via the Determinate Systems project "nix installer", although this will soon drop standard nix. There is a fork in the works but it's experimental.
-
-Determinate Systems version - https://github.com/DeterminateSystems/nix-installer
-Nix fork (experimental) - https://github.com/NixOS/experimental-nix-installer
-
-- On macOS, install nix-darwin via the `nix run` command in the [nix-darwin installation guide](https://github.com/LnL7/nix-darwin). This will require the dotfiles to be pulled, and you to be in the `nix` directory.
+### Bootstrapping
+Nix will need to be installed along with nix-darwin on macos, or home-manager on linux. See the [bootstrap guide](./docs/bootstrap.md) for instructions on how to install these.
 
 ### Setup
 ```sh
@@ -68,7 +63,7 @@ sudo darwin-rebuild build --flake .#elliot@macos-work
 sudo darwin-rebuild switch --flake .#elliot@macos-work
 
 # On Linux:
-home-manager switch --flake .#elliot@hostname
+home-manager switch --flake .#elliot@desktop
 ```
 
 ### Customization
